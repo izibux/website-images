@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getImageUrl } from '../../config/cdn';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -14,6 +15,15 @@ const Header = () => {
       <div className={`container ${styles.headerContainer}`}>
         {/* Logo */}
         <div className={styles.logo}>
+          <img 
+            src={getImageUrl('logo.png')} 
+            alt="Izibux Logo"
+            className={styles.logoImage}
+            onError={(e) => {
+              // Hide image if it fails to load, show text only
+              e.currentTarget.style.display = 'none';
+            }}
+          />
           <span className={styles.logoText}>IZIBUX</span>
         </div>
 

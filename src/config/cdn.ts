@@ -45,13 +45,12 @@ export const getLocalUrl = (imagePath: string): string => {
 };
 
 /**
- * Get image URL based on environment
- * In development: uses local files
- * In production: uses CDN
+ * Get image URL - Always uses CDN
+ * Use getLocalUrl() directly if you need local files
  */
 export const getImageUrl = (imagePath: string): string => {
-  const isDevelopment = import.meta.env.DEV;
-  return isDevelopment ? getLocalUrl(imagePath) : getCDNUrl(imagePath);
+  // Always use CDN for production-ready images
+  return getCDNUrl(imagePath);
 };
 
 export default CDN_PATHS;
