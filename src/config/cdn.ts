@@ -1,8 +1,8 @@
 // CDN Configuration for GitHub + jsDelivr
 
 // GitHub repository configuration
-const GITHUB_USER = 'izibux'; // GitHub username
-const GITHUB_REPO = 'website-images'; // Repository name for images
+const GITHUB_USER = 'rafaelpiro08-dot'; // Replace with your GitHub username
+const GITHUB_REPO = 'izibux-site'; // Replace with your repository name
 const GITHUB_BRANCH = 'main'; // or 'master' depending on your default branch
 
 // Base URL for jsDelivr CDN
@@ -45,12 +45,13 @@ export const getLocalUrl = (imagePath: string): string => {
 };
 
 /**
- * Get image URL - Always uses CDN
- * Use getLocalUrl() directly if you need local files
+ * Get image URL based on environment
+ * In development: uses local files
+ * In production: uses CDN
  */
 export const getImageUrl = (imagePath: string): string => {
-  // Always use CDN for production-ready images
-  return getCDNUrl(imagePath);
+  const isDevelopment = import.meta.env.DEV;
+  return isDevelopment ? getLocalUrl(imagePath) : getCDNUrl(imagePath);
 };
 
 export default CDN_PATHS;
