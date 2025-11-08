@@ -89,24 +89,36 @@
   width: 100%;
 }
 
-/* CTA Button */
-.ctaButton {
+/* Discord Button */
+.discordButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: transparent;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
-  padding: 10px 24px;
+  padding: 10px 20px;
   border-radius: 10px;
   font-weight: 600;
   font-size: var(--font-size-base);
   cursor: pointer;
   transition: all var(--transition-fast);
   box-shadow: 0 2px 8px rgba(0, 255, 198, 0.15);
+  text-decoration: none;
 }
 
-.ctaButton:hover {
+.discordButton:hover {
   background: rgba(0, 255, 198, 0.1);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 255, 198, 0.2);
+}
+
+.discordButton svg {
+  transition: transform var(--transition-fast);
+}
+
+.discordButton:hover svg {
+  transform: scale(1.05);
 }
 
 /* Mobile Menu Button */
@@ -154,7 +166,10 @@
   color: var(--color-primary);
 }
 
-.mobileCtaButton {
+.mobileDiscordButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
   background: transparent;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
@@ -165,9 +180,11 @@
   cursor: pointer;
   margin-top: var(--spacing-sm);
   transition: all var(--transition-fast);
+  text-decoration: none;
+  justify-content: center;
 }
 
-.mobileCtaButton:hover {
+.mobileDiscordButton:hover {
   background: rgba(0, 255, 198, 0.1);
 }
 
