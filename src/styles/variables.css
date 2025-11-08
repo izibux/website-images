@@ -1,0 +1,59 @@
+/* Color Palette - Trust & Neon Theme */
+:root {
+  /* Primary Colors */
+  --color-primary: #00FFC6;
+  --color-secondary: #0D0D0D;
+  
+  /* Background Colors */
+  --color-bg-primary: #0D0D0D;
+  --color-bg-secondary: #1B1B1B;
+  
+  /* Text Colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #F2F2F2;
+  
+  /* Accent Colors */
+  --color-accent: #00FFC6;
+  --color-accent-hover: #00E5B0;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #00FFC6 0%, #00B890 100%);
+  --gradient-dark: linear-gradient(135deg, #1B1B1B 0%, #0D0D0D 100%);
+  --gradient-neon: linear-gradient(90deg, #00FFC6 0%, #00FFE0 100%);
+  
+  /* Shadows */
+  --shadow-neon: 0 0 20px rgba(0, 255, 198, 0.3);
+  --shadow-neon-hover: 0 0 30px rgba(0, 255, 198, 0.5);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-2xl: 64px;
+  --spacing-3xl: 96px;
+  
+  /* Font Sizes */
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+  --font-size-5xl: 3rem;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease-in-out;
+  --transition-base: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+}
+

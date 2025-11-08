@@ -1,0 +1,13 @@
+# Images Directory
+
+This directory contains all image assets for the project.
+
+## Structure:
+- logo/ - Logo variations and branding
+- hero/ - Hero section images
+- icons/ - Icon files
+- misc/ - Other images
+
+## Usage:
+Place your images here and they will be served via jsDelivr CDN in production.
+
