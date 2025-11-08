@@ -9,6 +9,7 @@ const FloatingRobux = () => {
     delay: `${Math.random() * 5}s`, // Random animation delay
     duration: `${8 + Math.random() * 4}s`, // Duration between 8-12s
     size: `${40 + Math.random() * 30}px`, // Size between 40-70px
+    glowDelay: `${Math.random() * 3}s`, // Random glow animation delay
   }));
 
   return (
@@ -21,8 +22,8 @@ const FloatingRobux = () => {
           className={styles.floatingRobux}
           style={{
             left: icon.left,
-            animationDelay: icon.delay,
-            animationDuration: icon.duration,
+            animationDelay: `${icon.delay}, ${icon.glowDelay}`,
+            animationDuration: `${icon.duration}, 3s`,
             width: icon.size,
             height: icon.size,
           }}

@@ -14,10 +14,20 @@
 .floatingRobux {
   position: absolute;
   bottom: -100px;
-  opacity: 0.4;
-  animation: floatUp linear infinite;
-  filter: blur(0.5px);
-  will-change: transform;
+  opacity: 0.55;
+  animation: floatUp linear infinite, glowPulse 3s ease-in-out infinite;
+  filter: blur(0.3px) drop-shadow(0 0 8px rgba(0, 255, 198, 0.4));
+  will-change: transform, filter;
+}
+
+/* Glow Pulse Animation */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: blur(0.3px) drop-shadow(0 0 8px rgba(0, 255, 198, 0.4));
+  }
+  50% {
+    filter: blur(0.3px) drop-shadow(0 0 16px rgba(0, 255, 198, 0.7));
+  }
 }
 
 /* Float Up Animation */
@@ -27,10 +37,10 @@
     opacity: 0;
   }
   10% {
-    opacity: 0.4;
+    opacity: 0.55;
   }
   90% {
-    opacity: 0.4;
+    opacity: 0.55;
   }
   100% {
     transform: translateY(-110vh) rotate(360deg);
@@ -53,10 +63,10 @@
     opacity: 0;
   }
   10% {
-    opacity: 0.4;
+    opacity: 0.55;
   }
   90% {
-    opacity: 0.4;
+    opacity: 0.55;
   }
   100% {
     transform: translateY(-110vh) translateX(-30px) rotate(360deg);
@@ -70,10 +80,10 @@
     opacity: 0;
   }
   10% {
-    opacity: 0.4;
+    opacity: 0.55;
   }
   90% {
-    opacity: 0.4;
+    opacity: 0.55;
   }
   100% {
     transform: translateY(-110vh) translateX(30px) rotate(-360deg);
@@ -88,7 +98,17 @@
   }
   
   .floatingRobux {
-    opacity: 0.3;
+    opacity: 0.45;
+    filter: blur(0.5px) drop-shadow(0 0 6px rgba(0, 255, 198, 0.3));
+  }
+  
+  @keyframes glowPulse {
+    0%, 100% {
+      filter: blur(0.5px) drop-shadow(0 0 6px rgba(0, 255, 198, 0.3));
+    }
+    50% {
+      filter: blur(0.5px) drop-shadow(0 0 12px rgba(0, 255, 198, 0.5));
+    }
   }
 }
 
