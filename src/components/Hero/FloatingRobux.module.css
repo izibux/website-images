@@ -1,5 +1,5 @@
-/* Particles Container */
-.particlesContainer {
+/* Floating Robux Container */
+.floatingContainer {
   position: absolute;
   top: 0;
   left: 0;
@@ -10,120 +10,114 @@
   z-index: 1;
 }
 
-/* Individual Particle */
-.particle {
+/* Individual Floating Robux */
+.floatingRobux {
   position: absolute;
-  bottom: -20px;
-  background: var(--color-primary);
-  border-radius: 50%;
-  opacity: 0;
-  animation: floatParticle linear infinite, twinkle ease-in-out infinite;
-  box-shadow: 0 0 6px rgba(0, 255, 198, 0.8),
-              0 0 12px rgba(0, 255, 198, 0.4);
-  will-change: transform, opacity;
+  bottom: -100px;
+  opacity: 0.25;
+  animation: floatUp linear infinite, glowPulse 4s ease-in-out infinite;
+  filter: blur(0.4px) drop-shadow(0 0 6px rgba(0, 255, 198, 0.25));
+  will-change: transform, filter;
 }
 
-/* Float Particle Animation */
-@keyframes floatParticle {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0;
-  }
-  5% {
-    opacity: 0.6;
-  }
-  95% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-110vh) translateX(20px);
-    opacity: 0;
-  }
-}
-
-/* Twinkle/Pulse Effect */
-@keyframes twinkle {
+/* Glow Pulse Animation */
+@keyframes glowPulse {
   0%, 100% {
-    opacity: 0.3;
-    box-shadow: 0 0 4px rgba(0, 255, 198, 0.6),
-                0 0 8px rgba(0, 255, 198, 0.3);
+    filter: blur(0.4px) drop-shadow(0 0 6px rgba(0, 255, 198, 0.25));
   }
   50% {
-    opacity: 0.8;
-    box-shadow: 0 0 8px rgba(0, 255, 198, 1),
-                0 0 16px rgba(0, 255, 198, 0.6);
+    filter: blur(0.4px) drop-shadow(0 0 10px rgba(0, 255, 198, 0.4));
   }
 }
 
-/* Alternate movement patterns for natural effect */
-.particle:nth-child(3n) {
-  animation-name: floatParticleLeft, twinkle;
-}
-
-.particle:nth-child(3n+1) {
-  animation-name: floatParticleRight, twinkle;
-}
-
-.particle:nth-child(3n+2) {
-  animation-name: floatParticle, twinkle;
-}
-
-@keyframes floatParticleLeft {
+/* Float Up Animation */
+@keyframes floatUp {
   0% {
-    transform: translateY(0) translateX(0);
+    transform: translateY(0) rotate(0deg);
     opacity: 0;
   }
-  5% {
-    opacity: 0.6;
+  10% {
+    opacity: 0.25;
   }
-  95% {
-    opacity: 0.6;
+  70% {
+    opacity: 0.25;
+  }
+  85% {
+    opacity: 0.1;
   }
   100% {
-    transform: translateY(-110vh) translateX(-40px);
+    transform: translateY(-110vh) rotate(360deg);
     opacity: 0;
   }
 }
 
-@keyframes floatParticleRight {
+/* Add slight horizontal movement for more natural effect */
+.floatingRobux:nth-child(odd) {
+  animation-name: floatUpLeft;
+}
+
+.floatingRobux:nth-child(even) {
+  animation-name: floatUpRight;
+}
+
+@keyframes floatUpLeft {
   0% {
-    transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0) rotate(0deg);
     opacity: 0;
   }
-  5% {
-    opacity: 0.6;
+  10% {
+    opacity: 0.25;
   }
-  95% {
-    opacity: 0.6;
+  70% {
+    opacity: 0.25;
+  }
+  85% {
+    opacity: 0.1;
   }
   100% {
-    transform: translateY(-110vh) translateX(40px);
+    transform: translateY(-110vh) translateX(-20px) rotate(360deg);
     opacity: 0;
   }
 }
 
-/* Responsive - reduce particles on mobile */
+@keyframes floatUpRight {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.25;
+  }
+  70% {
+    opacity: 0.25;
+  }
+  85% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(20px) rotate(-360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive - reduce amount on mobile */
 @media (max-width: 768px) {
-  .particle:nth-child(n+16) {
+  .floatingRobux:nth-child(n+4) {
     display: none;
   }
   
-  .particle {
-    opacity: 0.5;
+  .floatingRobux {
+    opacity: 0.2;
+    filter: blur(0.6px) drop-shadow(0 0 5px rgba(0, 255, 198, 0.2));
   }
   
-  @keyframes twinkle {
+  @keyframes glowPulse {
     0%, 100% {
-      opacity: 0.2;
-      box-shadow: 0 0 3px rgba(0, 255, 198, 0.5),
-                  0 0 6px rgba(0, 255, 198, 0.2);
+      filter: blur(0.6px) drop-shadow(0 0 5px rgba(0, 255, 198, 0.2));
     }
     50% {
-      opacity: 0.6;
-      box-shadow: 0 0 6px rgba(0, 255, 198, 0.8),
-                  0 0 12px rgba(0, 255, 198, 0.4);
+      filter: blur(0.6px) drop-shadow(0 0 8px rgba(0, 255, 198, 0.35));
     }
   }
 }
-
 

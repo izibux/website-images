@@ -1,28 +1,31 @@
+import { getCDNUrl } from '../../config/cdn';
 import styles from './FloatingRobux.module.css';
 
 const FloatingRobux = () => {
-  // Generate multiple floating particles with varied properties
-  const particles = Array.from({ length: 30 }, (_, index) => ({
+  // Generate fewer floating robux icons with more spacing
+  const robuxIcons = Array.from({ length: 5 }, (_, index) => ({
     id: index,
-    left: `${Math.random() * 100}%`, // Random horizontal position
-    delay: `${Math.random() * 8}s`, // Random animation delay
-    duration: `${10 + Math.random() * 8}s`, // Duration between 10-18s
-    size: `${2 + Math.random() * 4}px`, // Size between 2-6px
-    twinkleDelay: `${Math.random() * 4}s`, // Random twinkle delay
+    left: `${10 + (index * 20) + Math.random() * 10}%`, // More evenly distributed
+    delay: `${index * 2}s`, // Staggered delays for spacing
+    duration: `${10 + Math.random() * 3}s`, // Duration between 10-13s
+    size: `${35 + Math.random() * 20}px`, // Size between 35-55px (smaller)
+    glowDelay: `${Math.random() * 3}s`, // Random glow animation delay
   }));
 
   return (
-    <div className={styles.particlesContainer}>
-      {particles.map((particle) => (
-        <div
-          key={particle.id}
-          className={styles.particle}
+    <div className={styles.floatingContainer}>
+      {robuxIcons.map((icon) => (
+        <img
+          key={icon.id}
+          src={getCDNUrl('robux.png')}
+          alt=""
+          className={styles.floatingRobux}
           style={{
-            left: particle.left,
-            animationDelay: `${particle.delay}, ${particle.twinkleDelay}`,
-            animationDuration: `${particle.duration}, ${2 + Math.random() * 2}s`,
-            width: particle.size,
-            height: particle.size,
+            left: icon.left,
+            animationDelay: `${icon.delay}, ${icon.glowDelay}`,
+            animationDuration: `${icon.duration}, 3s`,
+            width: icon.size,
+            height: icon.size,
           }}
         />
       ))}
