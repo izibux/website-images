@@ -1,5 +1,5 @@
-/* Floating Robux Container */
-.floatingContainer {
+/* Particles Container */
+.particlesContainer {
   position: absolute;
   top: 0;
   left: 0;
@@ -10,105 +10,120 @@
   z-index: 1;
 }
 
-/* Individual Floating Robux */
-.floatingRobux {
+/* Individual Particle */
+.particle {
   position: absolute;
-  bottom: -100px;
-  opacity: 0.55;
-  animation: floatUp linear infinite, glowPulse 3s ease-in-out infinite;
-  filter: blur(0.3px) drop-shadow(0 0 8px rgba(0, 255, 198, 0.4));
-  will-change: transform, filter;
+  bottom: -20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatParticle linear infinite, twinkle ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(0, 255, 198, 0.8),
+              0 0 12px rgba(0, 255, 198, 0.4);
+  will-change: transform, opacity;
 }
 
-/* Glow Pulse Animation */
-@keyframes glowPulse {
+/* Float Particle Animation */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.6;
+  }
+  95% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+/* Twinkle/Pulse Effect */
+@keyframes twinkle {
   0%, 100% {
-    filter: blur(0.3px) drop-shadow(0 0 8px rgba(0, 255, 198, 0.4));
+    opacity: 0.3;
+    box-shadow: 0 0 4px rgba(0, 255, 198, 0.6),
+                0 0 8px rgba(0, 255, 198, 0.3);
   }
   50% {
-    filter: blur(0.3px) drop-shadow(0 0 16px rgba(0, 255, 198, 0.7));
+    opacity: 0.8;
+    box-shadow: 0 0 8px rgba(0, 255, 198, 1),
+                0 0 16px rgba(0, 255, 198, 0.6);
   }
 }
 
-/* Float Up Animation */
-@keyframes floatUp {
+/* Alternate movement patterns for natural effect */
+.particle:nth-child(3n) {
+  animation-name: floatParticleLeft, twinkle;
+}
+
+.particle:nth-child(3n+1) {
+  animation-name: floatParticleRight, twinkle;
+}
+
+.particle:nth-child(3n+2) {
+  animation-name: floatParticle, twinkle;
+}
+
+@keyframes floatParticleLeft {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) translateX(0);
     opacity: 0;
   }
-  10% {
-    opacity: 0.55;
+  5% {
+    opacity: 0.6;
   }
-  90% {
-    opacity: 0.55;
+  95% {
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(-110vh) rotate(360deg);
+    transform: translateY(-110vh) translateX(-40px);
     opacity: 0;
   }
 }
 
-/* Add slight horizontal movement for more natural effect */
-.floatingRobux:nth-child(odd) {
-  animation-name: floatUpLeft;
-}
-
-.floatingRobux:nth-child(even) {
-  animation-name: floatUpRight;
-}
-
-@keyframes floatUpLeft {
+@keyframes floatParticleRight {
   0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
+    transform: translateY(0) translateX(0);
     opacity: 0;
   }
-  10% {
-    opacity: 0.55;
+  5% {
+    opacity: 0.6;
   }
-  90% {
-    opacity: 0.55;
+  95% {
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(-110vh) translateX(-30px) rotate(360deg);
+    transform: translateY(-110vh) translateX(40px);
     opacity: 0;
   }
 }
 
-@keyframes floatUpRight {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.55;
-  }
-  90% {
-    opacity: 0.55;
-  }
-  100% {
-    transform: translateY(-110vh) translateX(30px) rotate(-360deg);
-    opacity: 0;
-  }
-}
-
-/* Responsive - reduce amount on mobile */
+/* Responsive - reduce particles on mobile */
 @media (max-width: 768px) {
-  .floatingRobux:nth-child(n+7) {
+  .particle:nth-child(n+16) {
     display: none;
   }
   
-  .floatingRobux {
-    opacity: 0.45;
-    filter: blur(0.5px) drop-shadow(0 0 6px rgba(0, 255, 198, 0.3));
+  .particle {
+    opacity: 0.5;
   }
   
-  @keyframes glowPulse {
+  @keyframes twinkle {
     0%, 100% {
-      filter: blur(0.5px) drop-shadow(0 0 6px rgba(0, 255, 198, 0.3));
+      opacity: 0.2;
+      box-shadow: 0 0 3px rgba(0, 255, 198, 0.5),
+                  0 0 6px rgba(0, 255, 198, 0.2);
     }
     50% {
-      filter: blur(0.5px) drop-shadow(0 0 12px rgba(0, 255, 198, 0.5));
+      opacity: 0.6;
+      box-shadow: 0 0 6px rgba(0, 255, 198, 0.8),
+                  0 0 12px rgba(0, 255, 198, 0.4);
     }
   }
 }
+
 

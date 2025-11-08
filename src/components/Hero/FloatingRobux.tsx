@@ -1,31 +1,28 @@
-import { getCDNUrl } from '../../config/cdn';
 import styles from './FloatingRobux.module.css';
 
 const FloatingRobux = () => {
-  // Generate multiple floating robux icons with different properties
-  const robuxIcons = Array.from({ length: 12 }, (_, index) => ({
+  // Generate multiple floating particles with varied properties
+  const particles = Array.from({ length: 30 }, (_, index) => ({
     id: index,
     left: `${Math.random() * 100}%`, // Random horizontal position
-    delay: `${Math.random() * 5}s`, // Random animation delay
-    duration: `${8 + Math.random() * 4}s`, // Duration between 8-12s
-    size: `${40 + Math.random() * 30}px`, // Size between 40-70px
-    glowDelay: `${Math.random() * 3}s`, // Random glow animation delay
+    delay: `${Math.random() * 8}s`, // Random animation delay
+    duration: `${10 + Math.random() * 8}s`, // Duration between 10-18s
+    size: `${2 + Math.random() * 4}px`, // Size between 2-6px
+    twinkleDelay: `${Math.random() * 4}s`, // Random twinkle delay
   }));
 
   return (
-    <div className={styles.floatingContainer}>
-      {robuxIcons.map((icon) => (
-        <img
-          key={icon.id}
-          src={getCDNUrl('robux.png')}
-          alt=""
-          className={styles.floatingRobux}
+    <div className={styles.particlesContainer}>
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className={styles.particle}
           style={{
-            left: icon.left,
-            animationDelay: `${icon.delay}, ${icon.glowDelay}`,
-            animationDuration: `${icon.duration}, 3s`,
-            width: icon.size,
-            height: icon.size,
+            left: particle.left,
+            animationDelay: `${particle.delay}, ${particle.twinkleDelay}`,
+            animationDuration: `${particle.duration}, ${2 + Math.random() * 2}s`,
+            width: particle.size,
+            height: particle.size,
           }}
         />
       ))}
