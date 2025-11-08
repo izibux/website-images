@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getCDNUrl } from '../../config/cdn';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -14,6 +15,11 @@ const Header = () => {
       <div className={`container ${styles.headerContainer}`}>
         {/* Logo */}
         <div className={styles.logo}>
+          <img 
+            src={getCDNUrl('logo.png')} 
+            alt="Izibux Logo"
+            className={styles.logoImage}
+          />
           <span className={styles.logoText}>IZIBUX</span>
         </div>
 

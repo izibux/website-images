@@ -1,8 +1,13 @@
 import styles from './Hero.module.css';
+import { getCDNUrl } from '../../config/cdn';
+import FloatingRobux from './FloatingRobux';
 
 const Hero = () => {
   return (
     <section className={styles.hero} id="home">
+      {/* Floating Robux Animation */}
+      <FloatingRobux />
+      
       <div className={`container ${styles.heroContainer}`}>
         {/* Left Content */}
         <div className={styles.heroContent}>
@@ -16,11 +21,11 @@ const Hero = () => {
 
           <div className={styles.ctaGroup}>
             <button className={styles.primaryButton}>
-              Ver Pacotes
+              Compre Robux aqui
               <span className={styles.buttonIcon}>→</span>
             </button>
             <button className={styles.secondaryButton}>
-              Como Funciona
+              Como funciona
             </button>
           </div>
 
@@ -49,8 +54,8 @@ const Hero = () => {
                 <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--color-primary)' }}/>
               </svg>
             </div>
-            <div className={styles.cardTitle}>Entrega Instantânea</div>
-            <div className={styles.cardDescription}>Receba seus Robux em segundos</div>
+            <div className={styles.cardTitle}>100% Automático</div>
+            <div className={styles.cardDescription}>Receba seus Robux instantaneamente</div>
           </div>
 
           <div className={styles.floatingCard} style={{ animationDelay: '0.2s' }}>
@@ -60,20 +65,20 @@ const Hero = () => {
                 <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--color-primary)' }}/>
               </svg>
             </div>
-            <div className={styles.cardTitle}>100% Seguro</div>
-            <div className={styles.cardDescription}>Garantia total de entrega</div>
+            <div className={styles.cardTitle}>100% Confiável</div>
+            <div className={styles.cardDescription}>Seus Robux ou seu dinheiro de volta</div>
           </div>
 
           <div className={styles.floatingCard} style={{ animationDelay: '0.4s' }}>
             <div className={styles.cardIcon}>
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="9" cy="21" r="1" fill="currentColor" style={{ color: 'var(--color-primary)' }}/>
-                <circle cx="20" cy="21" r="1" fill="currentColor" style={{ color: 'var(--color-primary)' }}/>
-                <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--color-primary)' }}/>
-              </svg>
+              <img 
+                src={getCDNUrl('robux.png')} 
+                alt="Robux"
+                style={{ width: '48px', height: '48px', objectFit: 'contain' }}
+              />
             </div>
             <div className={styles.cardTitle}>Melhores Preços</div>
-            <div className={styles.cardDescription}>Economia em cada compra</div>
+            <div className={styles.cardDescription}>Economia em cada compra de Robux</div>
           </div>
 
           {/* Decorative Elements */}
